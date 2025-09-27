@@ -8,7 +8,7 @@ def registrar_miembro(miembros):
     apellido = input("Apellido: ")
     rol = input("Rol asignado (Diseño, Desarrollo, Comunicación, etc.): ")
 
-    # Guardar en archivo sin borrar anteriores
+    
     with open("postulantes.txt", "a", encoding="utf-8") as archivo:
         archivo.write(f"{nombre} {apellido} - Rol: {rol}\n")
 
@@ -16,7 +16,7 @@ def registrar_miembro(miembros):
     print(f"{nombre} ha sido registrado como {rol}.")
 
 def login():
-    from menus import menu_admin, menu_usuario  # importar acá para evitar ciclos
+    from menus import menu_admin, menu_usuario  #evita ciclos
 
     print("\n------------------Iniciar sesión----------------------")
     usuario = input("Usuario: ")
