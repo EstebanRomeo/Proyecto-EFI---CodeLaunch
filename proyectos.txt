@@ -1,0 +1,10 @@
+
+----------- Proyecto -----------
+Nombre: CodeLaunch
+Descripcion: Plataforma
+Objetivos: Administrar proyectos
+Duracion: 3 semanas
+Cupo: 4
+Lider: admin
+-------------------------------
+

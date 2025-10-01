@@ -1,0 +1,28 @@
+
+----------- Proyecto -----------
+Nombre: El Toboso
+Descripcion: None
+Objetivos: vetnas
+Duracion: None
+Cupo: 4
+Lider: None
+-------------------------------
+
+----------- Proyecto -----------
+Nombre: cuate
+Descripcion: None
+Objetivos: vetnas
+Duracion: None
+Cupo: 4
+Lider: None
+-------------------------------
+
+----------- Proyecto -----------
+Nombre: El Toboso
+Descripcion: None
+Objetivos: vetnas
+Duracion: None
+Cupo: 4
+Lider: None
+-------------------------------
+
