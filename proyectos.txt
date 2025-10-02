@@ -1,10 +1,29 @@
+----------- Proyecto -----------
+Nombre: El Toboso
+Descripcion: None
+Objetivos: vetnas
+Duracion: None
+Integrentes: []
+Cupo: 4
+Lider: None
+-------------------------------
 
 ----------- Proyecto -----------
-Nombre: CodeLaunch
-Descripcion: Plataforma
-Objetivos: Administrar proyectos
-Duracion: 3 semanas
-Cupo: 4
+Nombre: Dos Banderas
+Descripcion: None
+Objetivos: Dsadasdas
+Duracion: None
+Integrentes: []
+Cupo: 2
+Lider: None
+-------------------------------
+----------- Proyecto -----------
+Nombre: Correr
+Descripcion: fdfds
+Objetivos: fdsfds
+Duracion: 65
+Integrentes: []
+Cupo: 0
 Lider: admin
 -------------------------------
 

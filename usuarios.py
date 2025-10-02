@@ -1,6 +1,7 @@
 usuarios = {
     "admin": {"contraseña": "admin123", "rol": "admin"},
-    "esteban": {"contraseña": "user123", "rol": "usuario", "tareas": [], "objetivos": []}
+    "esteban": {"contraseña": "user123", "rol": "usuario", "tareas": [], "objetivos": []},
+    "marcos": {"contraseña": "user1234", "rol": "usuario", "tareas": [], "objetivos": []}
 }
 
 def registrar_miembro(miembros):

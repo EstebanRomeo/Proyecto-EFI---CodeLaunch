@@ -1,28 +1,40 @@
+----------- Proyecto -----------
+Nombre: CodeLaunch
+Descripcion: None
+Objetivos: Administrar proyectos
+Duracion: None
+Integrentes: ['esteban']
+Cupo: 2
+Lider: None
+-------------------------------
 
 ----------- Proyecto -----------
-Nombre: El Toboso
+Nombre: YPF
 Descripcion: None
-Objetivos: vetnas
+Objetivos: dsadasdasdsad
 Duracion: None
+Integrentes: []
+Cupo: 5
+Lider: None
+-------------------------------
+
+----------- Proyecto -----------
+Nombre: fsdfdsf
+Descripcion: None
+Objetivos: fdsfdsfds
+Duracion: None
+Integrentes: []
 Cupo: 4
 Lider: None
 -------------------------------
 
 ----------- Proyecto -----------
-Nombre: cuate
+Nombre: dasdsad
 Descripcion: None
-Objetivos: vetnas
+Objetivos: asddas
 Duracion: None
-Cupo: 4
-Lider: None
--------------------------------
-
------------ Proyecto -----------
-Nombre: El Toboso
-Descripcion: None
-Objetivos: vetnas
-Duracion: None
-Cupo: 4
+Integrentes: []
+Cupo: 3
 Lider: None
 -------------------------------
 
