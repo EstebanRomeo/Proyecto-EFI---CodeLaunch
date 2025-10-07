@@ -3,7 +3,7 @@ Nombre: CodeLaunch
 Descripcion: None
 Objetivos: Administrar proyectos
 Duracion: None
-Integrentes: ['esteban']
+Integrantes: 
 Cupo: 2
 Lider: None
 -------------------------------
@@ -13,28 +13,28 @@ Nombre: YPF
 Descripcion: None
 Objetivos: dsadasdasdsad
 Duracion: None
-Integrentes: []
+Integrantes: 
 Cupo: 5
 Lider: None
 -------------------------------
 
 ----------- Proyecto -----------
-Nombre: fsdfdsf
-Descripcion: None
-Objetivos: fdsfdsfds
-Duracion: None
-Integrentes: []
-Cupo: 4
-Lider: None
+Nombre: Anhelo
+Descripcion: Hamburgueseria
+Objetivos: muchos
+Duracion: 5
+Integrantes: esteban,marcos
+Cupo: 3
+Lider: admin
 -------------------------------
 
 ----------- Proyecto -----------
-Nombre: dasdsad
-Descripcion: None
-Objetivos: asddas
-Duracion: None
-Integrentes: []
-Cupo: 3
-Lider: None
+Nombre: Susecretaria
+Descripcion: fdsfsd
+Objetivos: muchos
+Duracion: 4
+Integrantes: esteban
+Cupo: 4
+Lider: deus
 -------------------------------
 

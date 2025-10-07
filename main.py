@@ -5,7 +5,7 @@ def main():
     miembros = []  # lista en memoria
     while True:
         mostrar_menu()
-        opcion = input("Selecciona una opción: ")
+        opcion = input("Selecciona una opcion: ")
         
         if opcion == "1":
             registrar_miembro(miembros)
@@ -15,7 +15,7 @@ def main():
             print("¡Gracias por usar CodeLaunch!")
             break
         else:
-            print("Opción inválida. Intenta nuevamente.")
+            print("Opcion invalida - Intenta de nuevo")
 
 if __name__ == "__main__":
     main()

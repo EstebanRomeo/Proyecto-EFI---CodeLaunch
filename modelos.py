@@ -20,7 +20,7 @@ class Usuario: # CLASE USUARIO.
             print(f'No hay cupos disponibles en este proyecto.')
 
     def tomar_tarea(self, tarea):  # Tomar una tarea
-        if tarea.usuario_asignado is None:  # Si no se le asignó a nadie
+        if tarea.usuario_asignado is None:  # Si no se le asigno a nadie
             tarea.usuario_asignado = self  # Se le asigna
             tarea.estado = "En progreso..."
             print(f'{self.nombre} tomó la tarea: {tarea.nombre}')
@@ -28,9 +28,9 @@ class Usuario: # CLASE USUARIO.
             print(f'La tarea "{tarea.nombre}" ya está asignada.')
     
     def completar_tarea(self, tarea): #Completar una tarea
-        if tarea.usuario_asignado == self: #Si fué asignada a alguien
+        if tarea.usuario_asignado == self: #Si fue asignada a alguien
             tarea.estado = "completada"
-            self.historial.append(tarea) #Se agrega a la lista historial, donde van las tareas completadas.
+            self.historial.append(tarea) #Se agrega a la lista historial, donde van las tareas completadas
             print(f'{self.nombre} completó la tarea: {tarea.nombre}')
         else:
             print('No podés completar esta tarea.')
@@ -46,47 +46,46 @@ class Usuario: # CLASE USUARIO.
 
 
 class Proyecto:  
-    def __init__(self, nombre, descripcion, objetivos, duracion,usuarios: list, cupo, lider=None):
+    def __init__(self, nombre, descripcion, objetivos, duracion, cupo: int, lider=None):
         self.nombre = nombre
         self.descripcion = descripcion
         self.objetivos = objetivos
         self.duracion = duracion
-        self.usuarios = []
-        self.cupo = cupo
+        self.usuarios = []      
+        self.cupo = int(cupo)
         self.lider = lider
 
     
-    def guardar_txt(self, archivo="proyectos.txt"): #Guarda los datos del proyecto cargado por el admin, y los guarda en proyectos.txt
+    def guardar_txt(self, archivo="proyectos.txt"): 
         with open(archivo, "a", encoding="utf-8") as f:
             f.write("----------- Proyecto -----------\n")
             f.write(f"Nombre: {self.nombre}\n")
             f.write(f"Descripcion: {self.descripcion}\n")
             f.write(f"Objetivos: {self.objetivos}\n")
             f.write(f"Duracion: {self.duracion}\n")
-            f.write(f"Integrentes: {self.usuarios}\n")
+            f.write(f"Integrantes: {','.join(self.usuarios)}\n") #guarda usuarios como string
             f.write(f"Cupo: {self.cupo}\n")
             f.write(f"Lider: {self.lider}\n")
             f.write("-------------------------------\n\n")
     
     def agregar_usuario(self, usuario): 
-        if self.tiene_cupo():
+        if self.cupo > 0:
             self.usuarios.append(usuario)
-            print(f'{usuario.nombre} se unio al proyecto "{self.nombre}".')
+            self.cupo -= 1
+            print(f'{usuario} se unió al proyecto "{self.nombre}".')
         else:
             print(f'No hay cupos disponibles en este proyecto')
 
-    
-    def mostrar_estado(self): #Muestra estado del proyecto.
+    def mostrar_estado(self): 
         print(f'\nProyecto: "{self.nombre}"')
         print(f'Descripción: {self.descripcion}')
         print(f'Objetivos: {self.objetivos}')
         print(f'Duración: {self.duracion}')
+        print(f'Cupo disponible: {self.cupo}')
+        print(f'Líder: {self.lider}')
         print(f'Usuarios inscriptos:')
         for u in self.usuarios:
             print(f'- {u}')
-        print('Tareas: ')
-        for tarea in self.tareas:
-            print(f'- {tarea}')
 
     @classmethod
     def crear_proyecto(cls, usuario):
@@ -117,19 +116,22 @@ class Proyecto:
                             if ":" in linea:
                                 key, value = linea.split(":", 1)
                                 datos[key.strip()] = value.strip()
-                        proyecto = cls(
-                            nombre = datos.get("Nombre"),
-                            descripcion = datos.get("Descripción"),
-                            objetivos = datos.get("Objetivos"),
-                            duracion = datos.get("Duración"),
-                            usuarios = datos.get("Integrantes"),
-                            cupo = int(datos.get("Cupo", 0)),
-                            lider = datos.get("Líder")
-                        )
-                        proyectos.append(proyecto)
+                        if "Nombre" in datos:
+                            proyecto = cls(
+                                nombre = datos.get("Nombre"),
+                                descripcion = datos.get("Descripcion"),
+                                objetivos = datos.get("Objetivos"),
+                                duracion = datos.get("Duracion"),
+                                cupo = int(datos.get("Cupo", 0)),
+                                lider = datos.get("Lider")
+                            )
+                            if datos.get("Integrantes"):
+                                proyecto.usuarios = datos.get("Integrantes").split(",") if datos.get("Integrantes") != "[]" else []
+                            proyectos.append(proyecto)
         except FileNotFoundError:
             pass
         return proyectos
+
 
 
 class Tarea:

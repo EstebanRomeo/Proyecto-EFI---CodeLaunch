@@ -3,7 +3,7 @@ Nombre: El Toboso
 Descripcion: None
 Objetivos: vetnas
 Duracion: None
-Integrentes: []
+Integrantes: 
 Cupo: 4
 Lider: None
 -------------------------------
@@ -13,17 +13,18 @@ Nombre: Dos Banderas
 Descripcion: None
 Objetivos: Dsadasdas
 Duracion: None
-Integrentes: []
+Integrantes: 
 Cupo: 2
 Lider: None
 -------------------------------
+
 ----------- Proyecto -----------
-Nombre: Correr
-Descripcion: fdfds
-Objetivos: fdsfds
-Duracion: 65
-Integrentes: []
-Cupo: 0
-Lider: admin
+Nombre: El deablo
+Descripcion: Cosas
+Objetivos: Muchos mas
+Duracion: 3 años
+Integrantes: 
+Cupo: 6
+Lider: macaco
 -------------------------------
 
