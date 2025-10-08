@@ -1,11 +1,5 @@
 import random
-
-usuarios = {
-    "admin": {"contraseña": "admin123", "rol": "admin"},
-    "deus": {"contraseña": "admin1234", "rol": "admin"},
-    "esteban": {"contraseña": "user123", "rol": "usuario", "tareas": [], "objetivos": []},
-    "marcos": {"contraseña": "user1234", "rol": "usuario", "tareas": [], "objetivos": []}
-}
+from funciones import traer_usuarios
 
 def registrar_miembro(miembros):
     nombre = input("Nombre: ")

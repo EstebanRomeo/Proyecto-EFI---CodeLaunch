@@ -80,11 +80,21 @@ def postularse_proyecto(usuario):
         print("Ingresa un numero valido")
 
 
-def traer_usuarios(archivo):
-    with open('postulados.txt', 'r') as archivo:
-        usuarios_registrados = archivo.readlines()
-    
-    for linea in usuarios_registrados:
-        linea = linea.strip(" - ")
-        
-        
+def traer_usuarios():
+    usuarios = []
+    try:
+        with open('postulantes.txt', 'r') as archivo:
+            for linea in archivo:
+                linea = linea.strip()
+                if linea:
+                    partes = linea.split(" - ")
+                    usuarios.append({
+                        "tipo": partes[0],
+                        "nombre": partes[1],
+                        "usuario": partes[2],
+                        "rol": partes[3],
+                        "contraseña": partes[4],
+                    })
+    except FileNotFoundError:
+        pass
+    return usuarios
