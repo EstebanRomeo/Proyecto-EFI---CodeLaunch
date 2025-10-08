@@ -1,3 +1,5 @@
+import random
+
 usuarios = {
     "admin": {"contraseña": "admin123", "rol": "admin"},
     "deus": {"contraseña": "admin1234", "rol": "admin"},
@@ -8,25 +10,36 @@ usuarios = {
 def registrar_miembro(miembros):
     nombre = input("Nombre: ")
     apellido = input("Apellido: ")
-    usuario = input("Nombre de usuario: ")
+    usuario_id = f"{nombre.lower()}_{apellido.lower()}{random.randint(1000, 9999)}"
+    
+    try:
+        with open('postulantes.txt', 'r', encoding="utf-8") as archivo:
+            for linea in archivo:
+                if f"- {nombre} {apellido} -" in linea: #en caso que el nombre que ingrese al registrarse este entre los postulados, automaticamente le tira un mensaje terminando la accion
+                    print("Ya estas registrado en el sistema")
+                    return #si no pongo return la funcion sigue
+    except FileNotFoundError:
+        pass
+    
     rol = input("Rol asignado (Diseño, Desarrollo, Comunicación, etc.): ")
     contraseña = input("Contraseña: ")
-    print("¿Se registra como user o admin?")
+    print("¿Se registra como user o admin?")#Aca elige si es admin o user
     admin_user = input("1. Usuario 2. admin: ")
-    if admin_user == "1":
+    if admin_user == "1": #Si elige usuario lo guarda sin ningun problema
         with open("postulantes.txt", "a", encoding="utf-8") as archivo:
-            archivo.write(f"Usuario - {nombre} {apellido} - {usuario} - {rol} - {contraseña}\n")
-    elif admin_user == "2":
+            archivo.write(f"Usuario - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")
+    elif admin_user == "2": #Si elige admin tiene que poner una clave global para que autorice que va a ser admin
         contraseña_admin = input("Ingrese contraseña administradora: ")
-        if contraseña_admin == "admin9898":
+        if contraseña_admin == "admin9898":#Clave para ser admin
             with open("postulantes.txt", "a", encoding="utf-8") as archivo:
-                archivo.write(f"Admin - {nombre} {apellido} - {usuario} - {rol} - {contraseña}\n")
+                archivo.write(f"Admin - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")#Lo guarda en postulantes.txt
         else:
-            print("Error - Contraseña invalida - Registrese como user")
+            print("Error - Contraseña invalida - Registrese como user")#Si no tiene la clave para ser admin le salta el error
     
 
-    miembros.append({"nombre": nombre, "apellido": apellido, "rol": rol})
-    print(f"{nombre} ha sido registrado como {rol}.")
+    print(f'¡Usuario registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
+
+
 
 def login():
     from menus import menu_admin, menu_usuario  #evita ciclos

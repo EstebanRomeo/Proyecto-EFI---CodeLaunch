@@ -5,7 +5,7 @@ Objetivos: Administrar proyectos
 Duracion: None
 Integrantes: 
 Cupo: 2
-Lider: None
+Lider: EstebanR
 -------------------------------
 
 ----------- Proyecto -----------
@@ -15,7 +15,7 @@ Objetivos: dsadasdasdsad
 Duracion: None
 Integrantes: 
 Cupo: 5
-Lider: None
+Lider: EstebanR
 -------------------------------
 
 ----------- Proyecto -----------
@@ -23,8 +23,8 @@ Nombre: Anhelo
 Descripcion: Hamburgueseria
 Objetivos: muchos
 Duracion: 5
-Integrantes: esteban,marcos
-Cupo: 3
+Integrantes: esteban,marcos,mauro_icardi2540
+Cupo: 2
 Lider: admin
 -------------------------------
 
@@ -36,5 +36,15 @@ Duracion: 4
 Integrantes: esteban
 Cupo: 4
 Lider: deus
+-------------------------------
+
+----------- Proyecto -----------
+Nombre: El deablo
+Descripcion: Cosas
+Objetivos: Muchos mas
+Duracion: 3 años
+Integrantes: socrates,mauro_icardi2540
+Cupo: 4
+Lider: EstebanR
 -------------------------------
 

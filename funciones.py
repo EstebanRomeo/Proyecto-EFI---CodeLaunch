@@ -78,3 +78,13 @@ def postularse_proyecto(usuario):
             print("Opción inválida.")
     except ValueError:
         print("Ingresa un numero valido")
+
+
+def traer_usuarios(archivo):
+    with open('postulados.txt', 'r') as archivo:
+        usuarios_registrados = archivo.readlines()
+    
+    for linea in usuarios_registrados:
+        linea = linea.strip(" - ")
+        
+        
