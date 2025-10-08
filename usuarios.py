@@ -28,16 +28,16 @@ def registrar_miembro(miembros):
     if admin_user == "1": #Si elige usuario lo guarda sin ningun problema
         with open("postulantes.txt", "a", encoding="utf-8") as archivo:
             archivo.write(f"Usuario - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")
+            print(f'Usuario registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
     elif admin_user == "2": #Si elige admin tiene que poner una clave global para que autorice que va a ser admin
         contraseña_admin = input("Ingrese contraseña administradora: ")
         if contraseña_admin == "admin9898":#Clave para ser admin
             with open("postulantes.txt", "a", encoding="utf-8") as archivo:
                 archivo.write(f"Admin - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")#Lo guarda en postulantes.txt
+            print(f'Administrador registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
         else:
             print("Error - Contraseña invalida - Registrese como user")#Si no tiene la clave para ser admin le salta el error
-    
 
-    print(f'¡Usuario registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
 
 
 
