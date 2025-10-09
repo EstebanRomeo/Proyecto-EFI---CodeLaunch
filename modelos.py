@@ -1,4 +1,4 @@
-class Usuario: # CLASE USUARIO.
+class Usuario:
     def __init__(self, nombre, apellido, rol):
         self.nombre = nombre
         self.apellido = apellido

@@ -46,7 +46,7 @@ def login():
     usuario_solicitado = input("Usuario: ")
     contraseña_solicitada = input("Contraseña: ")
     
-    for linea in usuarios_registrados:
+    for linea in usuarios_registrados: #aca iria la funcion traer_usuarios pero hay que arreglarla
         linea = linea.strip()
             
         partes = linea.split(' - ')

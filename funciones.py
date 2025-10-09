@@ -3,12 +3,12 @@ from modelos import Proyecto
 def lanzar_proyecto():
     proyectos = Proyecto.cargar_proyectos("proyectos.txt") 
 
-    if not proyectos:
+    if not proyectos: #En caso que no se encuentren proyectos
         print("No hay proyectos pendientes para lanzar")
         return
     
     print("\nProyectos disponibles para lanzar:")
-    for i, p in enumerate(proyectos, start=1):
+    for i, p in enumerate(proyectos, start=1): #muestra los proyectos creados por los admin
         print(f"{i}. {p.nombre} (Cupo: {p.cupo}, Líder: {p.lider})")
 
     try:
@@ -33,15 +33,15 @@ def lanzar_proyecto():
 
 
 def postularse_proyecto(usuario):
-    proyectos = Proyecto.cargar_proyectos("proyectos_aprobados.txt")
+    proyectos = Proyecto.cargar_proyectos("proyectos_aprobados.txt")#carga los proyectos lanzados, para que el usuario pueda elegir a cual se quiere postular
 
     if not proyectos:
-        print("No hay proyectos disponibles para postularse.")
+        print("No hay proyectos disponibles para postularse.") #si no hay tira el mensaje
         return
 
     print("\nProyectos disponibles:")
     for i, p in enumerate(proyectos, start=1):
-        print(f"{i}. {p.nombre} (Cupo: {p.cupo}, Líder: {p.lider})")
+        print(f"{i}. {p.nombre} (Cupo: {p.cupo}, Líder: {p.lider})") #mueestra los proyectos lanzados por los admin
 
     try:
         eleccion = int(input("\nSelecciona un proyecto por numero: ")) - 1
@@ -73,14 +73,14 @@ def postularse_proyecto(usuario):
                     for p in proyectos:
                         p.guardar_txt("proyectos_aprobados.txt")
             else:
-                print("Este proyecto ya no tiene cupos disponibles.")
+                print("Este proyecto ya no tiene cupos disponibles")
         else:
-            print("Opción inválida.")
+            print("Opcion invalida")
     except ValueError:
         print("Ingresa un numero valido")
 
 
-def traer_usuarios():
+def traer_usuarios(): #quise ahorrar unas cuantas lineas con esta funcion pero hay que arreglar como toma los datos
     usuarios = []
     try:
         with open('postulantes.txt', 'r') as archivo:
