@@ -8,3 +8,4 @@ Usuario: mauro_icardi2540 || Proyecto: Anhelo
 Usuario: mauro_icardi2540 || Proyecto: El deablo
 Usuario: {'tipo': 'Usuario', 'nombre': 'Maurinho Juarez', 'usuario': 'socrates', 'rol': 'DT', 'contraseña': 'user123'} || Proyecto: Susecretaria
 Usuario: socrates || Proyecto: Susecretaria
+Usuario: chaucha_ramirez5719 || Proyecto: Anhelo

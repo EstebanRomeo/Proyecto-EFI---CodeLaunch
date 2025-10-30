@@ -23,8 +23,8 @@ Nombre: Anhelo
 Descripcion: Hamburgueseria
 Objetivos: muchos
 Duracion: 5
-Integrantes: esteban,marcos,mauro_icardi2540
-Cupo: 2
+Integrantes: esteban,marcos,mauro_icardi2540,chaucha_ramirez5719
+Cupo: 1
 Lider: admin
 -------------------------------
 

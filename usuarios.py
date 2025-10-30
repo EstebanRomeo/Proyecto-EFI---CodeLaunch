@@ -1,63 +1,79 @@
+from validaciones import ftry, validar_nombre, validar_rol, validar_contraseña
 import random
-from funciones import traer_usuarios
+
+import random
+from validaciones import ftry, validar_nombre, validar_rol, validar_contraseña
 
 def registrar_miembro(miembros):
-    nombre = input("Nombre: ")
-    apellido = input("Apellido: ")
-    usuario_id = f"{nombre.lower()}_{apellido.lower()}{random.randint(1000, 9999)}"
-    
+    print("\n--------- Registro de nuevo miembro ---------")
+
+    # NOMBRE
+    while True:
+        nombre = input("Nombre: ")
+        if ftry(validar_nombre, nombre):
+            break
+
+    # APELLIDO
+    while True:
+        apellido = input("Apellido: ")
+        if ftry(validar_nombre, apellido):
+            break
+
+    # GENERAR USUARIO
+    usuario_id = f"{nombre.lower()}_{apellido.lower()}{random.randint(1000,9999)}"
+
+    # VERIFICAR DUPLICADOS
     try:
         with open('postulantes.txt', 'r', encoding="utf-8") as archivo:
             for linea in archivo:
-                if f"- {nombre} {apellido} -" in linea: #en caso que el nombre que ingrese al registrarse este entre los postulados, automaticamente le tira un mensaje terminando la accion
-                    print("Ya estas registrado en el sistema")
-                    return #si no pongo return la funcion sigue
+                if usuario_id in linea:
+                    print("Ya existe un usuario con ese nombre, intenta nuevamente.")
+                    return
     except FileNotFoundError:
         pass
-    
-    rol = input("Rol asignado (Diseño, Desarrollo, Comunicación, etc.): ")
-    contraseña = input("Contraseña: ")
-    print("¿Se registra como user o admin?")#Aca elige si es admin o user
-    admin_user = input("1. Usuario 2. admin: ")
-    if admin_user == "1": #Si elige usuario lo guarda sin ningun problema
-        with open("postulantes.txt", "a", encoding="utf-8") as archivo:
-            archivo.write(f"Usuario - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")
-            print(f'Usuario registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
-    elif admin_user == "2": #Si elige admin tiene que poner una clave global para que autorice que va a ser admin
-        contraseña_admin = input("Ingrese contraseña administradora: ")
-        if contraseña_admin == "admin9898":#Clave para ser admin
-            with open("postulantes.txt", "a", encoding="utf-8") as archivo:
-                archivo.write(f"Admin - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")#Lo guarda en postulantes.txt
-            print(f'Administrador registrado con exito!\nUsuario: {usuario_id}\nContraseña: {contraseña}')
-        else:
-            print("Error - Contraseña invalida - Registrese como user")#Si no tiene la clave para ser admin le salta el error
 
+    # ROL
+    while True:
+        rol = input("Rol asignado (Diseño, Desarrollo, Comunicación, etc.): ")
+        if ftry(validar_rol, rol):
+            break
 
+    # CONTRASEÑA
+    while True:
+        contraseña = input("Contraseña: ")
+        if ftry(validar_contraseña, contraseña):
+            break
+
+    # GUARDAR USUARIO
+    with open("postulantes.txt", "a", encoding="utf-8") as archivo:
+        archivo.write(f"Usuario - {nombre} {apellido} - {usuario_id} - {rol} - {contraseña}\n")
+
+    miembros.append({"usuario": usuario_id, "nombre": f"{nombre} {apellido}", "rol": rol})
+
+    print(f"\nUsuario '{usuario_id}' registrado correctamente.")
 
 
 def login():
-    from menus import menu_admin, menu_usuario  #evita ciclos
+    from menus import menu_admin, menu_usuario  # evitar ciclos si es necesario
 
     with open('postulantes.txt', 'r') as archivo:
         usuarios_registrados = archivo.readlines()
-        
 
     print("\n------------------Iniciar sesión----------------------")
     usuario_solicitado = input("Usuario: ")
     contraseña_solicitada = input("Contraseña: ")
-    
-    for linea in usuarios_registrados: #aca iria la funcion traer_usuarios pero hay que arreglarla
-        linea = linea.strip()
-            
-        partes = linea.split(' - ')
-            
-        tipo = partes[0]
-        nombre_completo = partes[1]
-        usuario = partes[2]
-        area = partes[3]
-        contraseña = partes[4]
-    
+
+    encontrado = False  # bandera
+
+    for linea in usuarios_registrados:
+        partes = linea.strip().split(' - ')
+        if len(partes) < 5:
+            continue  # línea mal formada, la salteamos
+
+        tipo, nombre_completo, usuario, area, contraseña = partes
+
         if usuario_solicitado == usuario and contraseña_solicitada == contraseña:
+            encontrado = True
             print("-----------------------------------------")
             print(f"Hola, {nombre_completo}")
             if tipo.lower() == "admin":
@@ -66,5 +82,7 @@ def login():
                 menu_usuario(usuario)
             else:
                 print("Tipo incorrecto")
-        else:
-            print("Usuario o contraseña incorrecta")
+            return  # corta la función al iniciar sesión
+
+    if not encontrado:
+        print("Usuario o contraseña incorrecta")
