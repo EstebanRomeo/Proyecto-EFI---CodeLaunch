@@ -8,6 +8,8 @@ Caracteristicas Principales:
   - Contraseña
   - Generacion automatica de usuario
   - Diferentes acciones entre "Usuario comun" y "Administrador"
+  ---------Nuevo--------
+    -Validaciones
 
   **main.py** → Punto de entrada del programa
   **usuarios.py** → Contiene las funciones "registrar_miembro()" y "login()"
@@ -27,3 +29,7 @@ Caracteristicas Principales:
     - Ver proyectos
     - Marcar por completa una tarea
     - Tomar tarea
+
+  Mejoras 29/10
+  Agregamos validaciones en lo que es el registro. El usuario no podra poner un espacio vacio en el registro, la contraseña tiene que ser unicamente de 6 caracteres, tiene que tener al menos una letra mayuscula y algun numero.
+  Tambien se implemento la funcion de ver los proyectos disponibles
